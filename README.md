@@ -12,46 +12,31 @@ I believe that supporting local producers is important for building stronger, mo
 
 The project is open source and I welcome contributions from anyone who is interested in helping to improve the platform. Whether you're a developer, designer, or just interested in supporting local producers, there are many ways to get involved. I hope that this project can serve as a model for other communities looking to build similar platforms and support local producers.
 
-This repository contains the source code for the api component in the Kurdistan Food Network Project.
+This repository contains the source code for the client component in the Kurdistan Food Network Project.
 
 ### Technologies Used
 
 - .NET 7.0 SDK
-- PostgreSQL
-- Redis
+- Blazor WebAssembly (WASM)
 
 ### Run Locally
 
 To install and run the project locally, please follow these steps:
 
-#### 1. Use the docker compose provided in the repository:
-
-The docker compose will provide you with:
-1. %%%
-2. %%%
-
-#### 2. Clone the repository: 
+#### 1. Clone the repository: 
 
 ```sh
-git clone https://github.com/Ranj101/kfn-api.git
+git clone https://github.com/Ranj101/kfn-client.git
 ```
 
 #### 3. Run the following command to start the application.
 
 ```sh
 dotnet restore
-dotnet run --project src/KfnApi
+dotnet run --project src/KfnClient
 ```
 
-The api will now be served at http://localhost:5018 by default.
-
-### Tests
-
-You can run all the tests locally using the command:
-
-```sh
-dotnet test
-```
+The api will now be served at http://localhost:5118 by default.
 
 ### Configurations
 

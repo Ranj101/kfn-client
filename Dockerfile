@@ -1,20 +1,20 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
-WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+﻿FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["KfnClient/KfnClient.csproj", "KfnClient/"]
-RUN dotnet restore "KfnClient/KfnClient.csproj"
-COPY . .
-WORKDIR "/src/KfnClient"
-RUN dotnet build "KfnClient.csproj" -c Release -o /app/build
+COPY src/KfnClient/KfnClient.csproj KfnClient/
+RUN dotnet restore KfnClient/KfnClient.csproj
+
+COPY src .
+
+WORKDIR /src/KfnClient
+
+RUN dotnet build KfnClient.csproj --no-restore -c Release
 
 FROM build AS publish
-RUN dotnet publish "KfnClient.csproj" -c Release -o /app/publish
+RUN dotnet publish KfnClient.csproj --no-build -c Release -o /app/publish
 
-FROM base AS final
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
 ENTRYPOINT ["dotnet", "KfnClient.dll"]

@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KfnClient", "KfnClient\KfnClient.csproj", "{3810AB86-D18A-405B-8DA4-3AB64F1753B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KfnClient", "src\KfnClient\KfnClient.csproj", "{3810AB86-D18A-405B-8DA4-3AB64F1753B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

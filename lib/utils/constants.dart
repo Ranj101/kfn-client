@@ -15,10 +15,10 @@ final kApplicationTheme = ThemeData(
 );
 
 // ========== Colors ==========
-const kPrimaryGrey = Color(0xffEDEDED);
+const kBackgroundColor = Color(0xffF6FCEA);
 const kPrimaryTextColor = Color(0xff262626);
 const kPrimaryColor = Color.fromARGB(255, 55, 116, 45);
-const kSecondryColor = Color.fromARGB(255, 232, 240, 221);
+// const kSecondryColor = Color.fromARGB(255, 232, 240, 221);
 
 // ========== Sizes ==========
 const kPrimaryNavBarFontSize = 20.0;

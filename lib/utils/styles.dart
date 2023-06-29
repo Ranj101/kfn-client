@@ -11,7 +11,7 @@ ButtonStyle elevatedButtonStyle = ButtonStyle(
 
 ButtonStyle shoppingBagButtonStyle = ButtonStyle(
   elevation: MaterialStateProperty.all(0),
-  backgroundColor: MaterialStateProperty.all(kSecondryColor),
+  backgroundColor: MaterialStateProperty.all(kBackgroundColor),
   shape: MaterialStateProperty.all(RoundedRectangleBorder(
     borderRadius: kPrimaryBorderRadius,
     side: const BorderSide(color: Color.fromARGB(255, 199, 206, 190)),

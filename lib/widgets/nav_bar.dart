@@ -157,7 +157,8 @@ class _NavBarState extends State<NavBar> {
     return ElevatedButton(
       onPressed: () async {
         FirebaseAuth.instance.signOut();
-        context.pushReplacementNamed(RouteConstants.home);
+        setState(() {});
+        context.goNamed(RouteConstants.home);
       },
       style: elevatedButtonStyle,
       child: const Text(

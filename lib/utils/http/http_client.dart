@@ -11,8 +11,6 @@ class HttpClient {
   static Future<Map<String, String>> _headers() async {
     final token = await FirebaseAuth.instance.currentUser?.getIdToken();
 
-    print('Token -> $token');
-
     Map<String, String> headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
@@ -63,7 +61,7 @@ class HttpClient {
     dynamic responseBody;
 
     try {
-      responseBody = await json.decode(reponse.body);
+      responseBody = await jsonDecode(reponse.body);
     } catch (_) {
       responseBody = reponse.body;
     }
@@ -89,7 +87,7 @@ class HttpClient {
     dynamic responseBody;
 
     try {
-      responseBody = await json.decode(reponse.body);
+      responseBody = await jsonDecode(reponse.body);
     } catch (_) {
       responseBody = reponse.body;
     }
@@ -115,7 +113,7 @@ class HttpClient {
     dynamic responseBody;
 
     try {
-      responseBody = await json.decode(reponse.body);
+      responseBody = await jsonDecode(reponse.body);
     } catch (_) {
       responseBody = reponse.body;
     }
@@ -141,7 +139,7 @@ class HttpClient {
     dynamic responseBody;
 
     try {
-      responseBody = await json.decode(reponse.body);
+      responseBody = await jsonDecode(reponse.body);
     } catch (_) {
       responseBody = reponse.body;
     }

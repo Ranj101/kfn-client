@@ -118,6 +118,11 @@ class RouteConfigs {
         return '/login';
       }
 
+      if (isAuth() &&
+          (state.location == '/login' || state.location == '/register')) {
+        return '/';
+      }
+
       return null;
     },
   );

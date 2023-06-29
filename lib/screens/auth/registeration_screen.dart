@@ -314,8 +314,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
       if (user != null) {
         await user.updateDisplayName('${firstname}_+_${lastname}');
-        await user
-            .updatePhotoURL(imageId ?? 'b9779efb-675b-4d5d-9a5a-885f56f992c1');
+        if (imageId != null) await user.updatePhotoURL(imageId);
       }
 
       return null;

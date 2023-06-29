@@ -1,19 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user.dart';
+part of 'user_self_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-User _$UserFromJson(Map<String, dynamic> json) => User(
+UserSelfResponse _$UserSelfResponseFromJson(Map<String, dynamic> json) =>
+    UserSelfResponse(
       id: json['id'] as String,
-      identityId: json['identityId'] as String,
       firstName: json['firstName'] as String,
       lastName: json['lastName'] as String,
       email: json['email'] as String,
       roles: (json['roles'] as List<dynamic>).map((e) => e as String).toList(),
-      state: json['state'] as String,
       createdBy: json['createdBy'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
       profilePicture: json['profilePicture'] as String?,
@@ -24,16 +23,15 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
           : DateTime.parse(json['updatedAt'] as String),
     );
 
-Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
+Map<String, dynamic> _$UserSelfResponseToJson(UserSelfResponse instance) =>
+    <String, dynamic>{
       'id': instance.id,
-      'identityId': instance.identityId,
       'firstName': instance.firstName,
       'lastName': instance.lastName,
       'email': instance.email,
-      'profilePicture': instance.profilePicture,
       'coverPicture': instance.coverPicture,
+      'profilePicture': instance.profilePicture,
       'roles': instance.roles,
-      'state': instance.state,
       'createdBy': instance.createdBy,
       'updatedBy': instance.updatedBy,
       'createdAt': instance.createdAt.toIso8601String(),

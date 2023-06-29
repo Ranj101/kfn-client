@@ -1,14 +1,11 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'user.g.dart';
+part 'user_self_response.g.dart';
 
 @JsonSerializable()
-class User {
+class UserSelfResponse {
   @JsonKey(name: 'id')
   String id;
-
-  @JsonKey(name: 'identityId')
-  String identityId;
 
   @JsonKey(name: 'firstName')
   String firstName;
@@ -19,17 +16,14 @@ class User {
   @JsonKey(name: 'email')
   String email;
 
-  @JsonKey(name: 'profilePicture')
-  String? profilePicture;
-
   @JsonKey(name: 'coverPicture')
   String? coverPicture;
 
+  @JsonKey(name: 'profilePicture')
+  String? profilePicture;
+
   @JsonKey(name: 'roles')
   List<String> roles;
-
-  @JsonKey(name: 'state')
-  String state;
 
   @JsonKey(name: 'createdBy')
   String createdBy;
@@ -43,14 +37,12 @@ class User {
   @JsonKey(name: 'updatedAt')
   DateTime? updatedAt;
 
-  User({
+  UserSelfResponse({
     required this.id,
-    required this.identityId,
     required this.firstName,
     required this.lastName,
     required this.email,
     required this.roles,
-    required this.state,
     required this.createdBy,
     required this.createdAt,
     this.profilePicture,
@@ -59,6 +51,7 @@ class User {
     this.updatedAt,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
-  Map<String, dynamic> toJson() => _$UserToJson(this);
+  factory UserSelfResponse.fromJson(Map<String, dynamic> json) =>
+      _$UserSelfResponseFromJson(json);
+  Map<String, dynamic> toJson() => _$UserSelfResponseToJson(this);
 }

@@ -21,6 +21,7 @@ const kPrimaryColor = Color.fromARGB(255, 55, 116, 45);
 // const kSecondryColor = Color.fromARGB(255, 232, 240, 221);
 
 // ========== Sizes ==========
+const kPrimaryTextFontSize = 20.0;
 const kPrimaryNavBarFontSize = 20.0;
 const kPrimaryBorderRadiusValue = 10.0;
 final kPrimaryBorderRadius = BorderRadius.circular(kPrimaryBorderRadiusValue);

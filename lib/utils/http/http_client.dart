@@ -20,6 +20,8 @@ class HttpClient {
       headers['Authorization'] = 'Bearer $token';
     }
 
+    print('=== TOKEN ===\n$token');
+
     return headers;
   }
 

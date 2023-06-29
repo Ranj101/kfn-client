@@ -8,7 +8,9 @@ import 'package:kurdistan_food_network/utils/styles.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class NavBar extends StatefulWidget {
-  const NavBar({super.key});
+  const NavBar({super.key, required this.currentScreen});
+
+  final String currentScreen;
 
   @override
   State<NavBar> createState() => _NavBarState();
@@ -96,18 +98,26 @@ class _NavBarState extends State<NavBar> {
   }
 
   Widget createNavButton(String text, String destination) {
+    var textColor = kPrimaryTextColor;
+
+    if (widget.currentScreen == text) {
+      textColor = kPrimaryColor;
+    }
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 5),
       child: TextButton(
-        onPressed: () => context.goNamed(destination),
+        onPressed: () {
+          context.goNamed(destination);
+        },
         child: SizedBox(
           width: 100,
           height: 55,
           child: Center(
             child: Text(
               text,
-              style: const TextStyle(
-                color: kPrimaryTextColor,
+              style: TextStyle(
+                color: textColor,
                 fontWeight: FontWeight.bold,
                 fontSize: kPrimaryNavBarFontSize,
               ),
@@ -119,13 +129,21 @@ class _NavBarState extends State<NavBar> {
   }
 
   Widget createElevatedNavButton(String text, String destination) {
+    var style = elevatedButtonStyle;
+    var color = Colors.white;
+
+    if (widget.currentScreen == text) {
+      style = shoppingBagButtonStyle;
+      color = kPrimaryColor;
+    }
+
     return ElevatedButton(
       onPressed: () => context.goNamed(destination),
-      style: elevatedButtonStyle,
+      style: style,
       child: Text(
         text,
-        style: const TextStyle(
-          color: Colors.white,
+        style: TextStyle(
+          color: color,
           fontWeight: FontWeight.normal,
           fontSize: kPrimaryNavBarFontSize,
         ),
@@ -134,18 +152,24 @@ class _NavBarState extends State<NavBar> {
   }
 
   Widget createShoppingBagButton() {
+    var textColor = kPrimaryTextColor;
+
+    if (widget.currentScreen == 'ShoppingBag') {
+      textColor = kPrimaryColor;
+    }
+
     return ElevatedButton.icon(
       onPressed: () => context.goNamed(RouteConstants.shoppingBag),
-      icon: const Icon(
+      icon: Icon(
         size: 25,
         Icons.shopping_cart_sharp,
-        color: kPrimaryTextColor,
+        color: textColor,
       ),
       style: shoppingBagButtonStyle,
-      label: const Text(
+      label: Text(
         'Shopping Bag',
         style: TextStyle(
-          color: kPrimaryTextColor,
+          color: textColor,
           fontWeight: FontWeight.normal,
           fontSize: kPrimaryNavBarFontSize,
         ),

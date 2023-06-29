@@ -16,7 +16,7 @@ class _ProducerScreenState extends State<ProducerScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const NavBar(),
+            const NavBar(currentScreen: 'Producer'),
             Container(
               color: const Color.fromARGB(120, 255, 193, 7),
               height: 600,

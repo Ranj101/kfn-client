@@ -16,7 +16,7 @@ class _ShopScreenState extends State<ShopScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const NavBar(),
+            const NavBar(currentScreen: 'Shop'),
             Container(
               color: const Color.fromARGB(120, 255, 193, 7),
               height: 600,

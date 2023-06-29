@@ -41,7 +41,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const NavBar(),
+              const NavBar(currentScreen: 'Register'),
               const SizedBox(height: 20),
               const Text(
                 "Register",

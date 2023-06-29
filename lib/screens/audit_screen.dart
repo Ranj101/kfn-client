@@ -16,7 +16,7 @@ class _AuditScreenState extends State<AuditScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const NavBar(),
+            const NavBar(currentScreen: 'Audit'),
             Container(
               color: const Color.fromARGB(120, 255, 193, 7),
               height: 600,

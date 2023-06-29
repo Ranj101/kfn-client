@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const NavBar(),
+            const NavBar(currentScreen: 'Home'),
             Container(
               color: Color.fromARGB(120, 7, 143, 255),
               height: 600,

@@ -16,7 +16,7 @@ class _ContactScreenState extends State<ContactScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const NavBar(),
+            const NavBar(currentScreen: 'Contact'),
             Container(
               color: const Color.fromARGB(120, 255, 193, 7),
               height: 600,

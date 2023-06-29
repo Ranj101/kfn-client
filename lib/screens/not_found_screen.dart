@@ -11,7 +11,7 @@ class NotFoundScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const NavBar(),
+            const NavBar(currentScreen: 'NotFound'),
             Container(
               color: const Color.fromARGB(120, 255, 193, 7),
               height: 600,

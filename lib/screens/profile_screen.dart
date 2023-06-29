@@ -16,7 +16,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const NavBar(),
+            const NavBar(currentScreen: 'Profile'),
             Container(
               color: const Color.fromARGB(120, 255, 193, 7),
               height: 600,

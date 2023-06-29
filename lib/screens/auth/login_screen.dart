@@ -34,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const NavBar(),
+              const NavBar(currentScreen: 'Login'),
               Padding(
                 padding: const EdgeInsets.only(top: 30.0),
                 child: Center(

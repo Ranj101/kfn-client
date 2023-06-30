@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:kurdistan_food_network/models/user_self_response.dart';
 import 'package:kurdistan_food_network/utils/constants.dart';
 import 'package:kurdistan_food_network/utils/http/http_client.dart';
@@ -124,7 +125,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 style: TextStyle(
                                   color: kPrimaryTextColor,
                                   fontWeight: FontWeight.normal,
-                                  fontSize: kPrimaryTextFontSize,
+                                  fontSize: kPrimaryBodyTextFontSize,
                                 ),
                               ),
                               Padding(
@@ -134,7 +135,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   style: TextStyle(
                                     color: kPrimaryTextColor,
                                     fontWeight: FontWeight.normal,
-                                    fontSize: kPrimaryTextFontSize,
+                                    fontSize: kPrimaryBodyTextFontSize,
                                   ),
                                 ),
                               ),
@@ -143,7 +144,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 style: TextStyle(
                                   color: kPrimaryTextColor,
                                   fontWeight: FontWeight.normal,
-                                  fontSize: kPrimaryTextFontSize,
+                                  fontSize: kPrimaryBodyTextFontSize,
                                 ),
                               ),
                               Padding(
@@ -153,7 +154,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   style: TextStyle(
                                     color: kPrimaryTextColor,
                                     fontWeight: FontWeight.normal,
-                                    fontSize: kPrimaryTextFontSize,
+                                    fontSize: kPrimaryBodyTextFontSize,
                                   ),
                                 ),
                               ),
@@ -169,7 +170,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               style: const TextStyle(
                                 color: kPrimaryTextColor,
                                 fontWeight: FontWeight.normal,
-                                fontSize: kPrimaryTextFontSize,
+                                fontSize: kPrimaryBodyTextFontSize,
                               ),
                             ),
                             Padding(
@@ -179,27 +180,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 style: const TextStyle(
                                   color: kPrimaryTextColor,
                                   fontWeight: FontWeight.normal,
-                                  fontSize: kPrimaryTextFontSize,
+                                  fontSize: kPrimaryBodyTextFontSize,
                                 ),
                               ),
                             ),
                             Text(
-                              selfResponse!.createdAt.toLocal().toString(),
+                              '${DateFormat.yMMMMEEEEd().format(selfResponse!.createdAt)} - ${DateFormat.jm().format(selfResponse!.createdAt.toLocal())}',
                               style: const TextStyle(
                                 color: kPrimaryTextColor,
                                 fontWeight: FontWeight.normal,
-                                fontSize: kPrimaryTextFontSize,
+                                fontSize: kPrimaryBodyTextFontSize,
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.symmetric(vertical: 10),
                               child: Text(
-                                selfResponse?.updatedAt?.toLocal().toString() ??
-                                    'not updated yet',
+                                selfResponse!.updatedAt != null
+                                    ? '${DateFormat.yMMMMEEEEd().format(selfResponse!.updatedAt!)} - ${DateFormat.jm().format(selfResponse!.updatedAt!.toLocal())}'
+                                    : 'not updated yet',
                                 style: const TextStyle(
                                   color: kPrimaryTextColor,
                                   fontWeight: FontWeight.normal,
-                                  fontSize: kPrimaryTextFontSize,
+                                  fontSize: kPrimaryBodyTextFontSize,
                                 ),
                               ),
                             ),

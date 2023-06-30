@@ -237,6 +237,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 width: 300,
                 child: ElevatedButton(
                   onPressed: () async {
+                    setState(() {
+                      _registrationErrorResult = null;
+                    });
+
                     if (_formKey.currentState?.validate() ?? false) {
                       var errorResult = await registerUser(
                           _controllerFirstname.text,

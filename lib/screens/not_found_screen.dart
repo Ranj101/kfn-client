@@ -8,17 +8,17 @@ class NotFoundScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBackgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
             const NavBar(currentScreen: 'NotFound'),
             Container(
-              color: const Color.fromARGB(120, 255, 193, 7),
               height: 600,
               width: double.infinity,
               padding: EdgeInsets.only(top: kCurrentHeight! / 5),
-              child: Column(
-                children: const [
+              child: const Column(
+                children: [
                   Text(
                     textAlign: TextAlign.center,
                     'Page Not Found',

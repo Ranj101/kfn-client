@@ -13,12 +13,12 @@ class _ShopScreenState extends State<ShopScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBackgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
             const NavBar(currentScreen: 'Shop'),
             Container(
-              color: const Color.fromARGB(120, 255, 193, 7),
               height: 600,
               child: const Center(
                 child: Text(

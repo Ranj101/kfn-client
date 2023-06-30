@@ -136,6 +136,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: 300,
                 child: ElevatedButton(
                   onPressed: () async {
+                    setState(() {
+                      _loginErrorResult = null;
+                    });
                     if (_formKey.currentState?.validate() ?? false) {
                       var errorResult = await loginUser(
                           _controllerEmail.text, _controllerPassword.text);

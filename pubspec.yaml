@@ -45,8 +45,12 @@ dependencies:
   http: ^0.13.6
   email_validator: ^2.1.17
   loading_indicator: ^3.1.1
-  flutter_osm_plugin: ^0.55.3
   intl: ^0.18.1
+  json_annotation: ^4.8.1
+  dropdown_button2: ^2.1.4
+  flutter_map: ^4.0.0
+  latlong2: ^0.8.2
+  url_launcher: ^6.1.11
   
 
 dev_dependencies:

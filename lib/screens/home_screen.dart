@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kurdistan_food_network/routes/route_constants.dart';
 import 'package:kurdistan_food_network/utils/constants.dart';
 import 'package:kurdistan_food_network/utils/styles.dart';
 import 'package:kurdistan_food_network/widgets/nav_bar.dart';
+import 'package:latlong2/latlong.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,14 +35,43 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(height: 60),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: MediaQuery.of(context).size.width / 6),
-              child: Image.asset(
-                'assets/images/erbil_cycle_map.png',
-                fit: BoxFit.cover,
-                height: 400,
-                width: double.infinity,
+            Container(
+              height: 600,
+              padding: const EdgeInsets.symmetric(horizontal: 400),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20.0),
+                child: FlutterMap(
+                  options: MapOptions(
+                    center: LatLng(36.191113, 44.009167),
+                    zoom: 8,
+                    maxBounds: LatLngBounds(
+                      LatLng(-90, -180),
+                      LatLng(90, 180),
+                    ),
+                  ),
+                  children: [
+                    TileLayer(
+                      urlTemplate:
+                          'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                      userAgentPackageName: 'dev.fleaflet.flutter_map.example',
+                    ),
+                    MarkerLayer(
+                      markers: [
+                        Marker(
+                          width: 80,
+                          height: 80,
+                          point: LatLng(36.191113, 44.009167),
+                          builder: (ctx) => const Icon(
+                            Icons.location_pin,
+                            weight: 250,
+                            size: 30,
+                            color: kPrimaryColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             Padding(
@@ -262,7 +294,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Padding(
                     padding: const EdgeInsets.only(right: 400),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20.0),
+                      borderRadius: kPrimaryBorderRadius,
                       child: const Image(
                         image: AssetImage(
                             'assets/images/kurdish_producer_truck.jpg'),

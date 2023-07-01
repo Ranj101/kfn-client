@@ -20,7 +20,7 @@ class HttpClient {
       headers['Authorization'] = 'Bearer $token';
     }
 
-    print('=== TOKEN ===\n$token');
+    print('=== TOKEN\n$token\n-----------');
 
     return headers;
   }
@@ -34,6 +34,9 @@ class HttpClient {
         Uri.parse('$_url$path').replace(queryParameters: queryParameters),
         headers: headers ?? await _headers());
 
+    print('=== GET raw request\n${'$_url$path'}\n-----------');
+    print('=== GET raw response\n${reponse.body}\n-----------');
+
     dynamic responseBody;
 
     try {
@@ -42,11 +45,16 @@ class HttpClient {
       responseBody = reponse.body;
     }
 
-    return HTTPResponse(
+    var httpResponse = HTTPResponse(
       body: responseBody,
       statusCode: reponse.statusCode,
       isSuccessful: reponse.statusCode >= 200 && reponse.statusCode <= 299,
     );
+
+    print(
+        '=== Generated HTTP Response\nStatus Code:${httpResponse.statusCode}\nBody:${httpResponse.body}\n-----------');
+
+    return httpResponse;
   }
 
   static Future<HTTPResponse> post(

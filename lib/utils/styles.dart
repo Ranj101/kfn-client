@@ -18,3 +18,13 @@ ButtonStyle shoppingBagButtonStyle = ButtonStyle(
   )),
   minimumSize: MaterialStateProperty.all(const Size(100, 55)),
 );
+
+ButtonStyle arrowButtonStyle = ButtonStyle(
+  elevation: MaterialStateProperty.all(0),
+  backgroundColor: MaterialStateProperty.all(kDropdownColor),
+  shape: MaterialStateProperty.all(RoundedRectangleBorder(
+    borderRadius: kPrimaryBorderRadius,
+    side: const BorderSide(color: Color.fromARGB(255, 199, 206, 190)),
+  )),
+  minimumSize: MaterialStateProperty.all(const Size(150, 55)),
+);

@@ -6,7 +6,6 @@ import 'package:kurdistan_food_network/utils/constants.dart';
 import 'package:kurdistan_food_network/utils/styles.dart';
 import 'package:kurdistan_food_network/widgets/nav_bar.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

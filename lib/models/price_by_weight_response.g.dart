@@ -10,8 +10,8 @@ PriceByWeightResponse _$PriceByWeightResponseFromJson(
         Map<String, dynamic> json) =>
     PriceByWeightResponse(
       id: json['id'] as String,
-      value: json['value'] as double,
-      weight: json['weight'] as double,
+      value: (json['value'] as num).toDouble(),
+      weight: (json['weight'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$PriceByWeightResponseToJson(

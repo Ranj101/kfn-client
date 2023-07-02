@@ -6,7 +6,9 @@ import 'package:kurdistan_food_network/screens/contact_screen.dart';
 import 'package:kurdistan_food_network/screens/home_screen.dart';
 import 'package:kurdistan_food_network/screens/auth/login_screen.dart';
 import 'package:kurdistan_food_network/screens/not_found_screen.dart';
+import 'package:kurdistan_food_network/screens/producer_public_screen.dart';
 import 'package:kurdistan_food_network/screens/producer_screen.dart';
+import 'package:kurdistan_food_network/screens/product_screen.dart';
 import 'package:kurdistan_food_network/screens/profile_screen.dart';
 import 'package:kurdistan_food_network/screens/auth/registeration_screen.dart';
 import 'package:kurdistan_food_network/screens/shop_screen.dart';
@@ -38,6 +40,38 @@ class RouteConfigs {
           state: state,
           child: const ShopScreen(),
         ),
+        routes: [
+          GoRoute(
+            name: RouteConstants.producerPublic,
+            path: '${RouteConstants.producerPublic}/:id',
+            builder: (context, state) => ProducerPublicScreen(
+              id: state.pathParameters['id']!,
+            ),
+            pageBuilder: (context, state) =>
+                buildScreenWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: ProducerPublicScreen(
+                id: state.pathParameters['id']!,
+              ),
+            ),
+          ),
+          GoRoute(
+            name: RouteConstants.product,
+            path: '${RouteConstants.product}/:id',
+            builder: (context, state) => ProductScreen(
+              id: state.pathParameters['id']!,
+            ),
+            pageBuilder: (context, state) =>
+                buildScreenWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: ProductScreen(
+                id: state.pathParameters['id']!,
+              ),
+            ),
+          ),
+        ],
       ),
       GoRoute(
         name: RouteConstants.profile,
@@ -114,7 +148,25 @@ class RouteConfigs {
       kCurrentHeight = MediaQuery.of(context).size.height;
       kCurrentWidth = MediaQuery.of(context).size.width;
 
-      if (!isAuth() && !publicRoutes.contains(state.location)) {
+      var newUrl = '';
+      var location = state.location.substring(1);
+      var pathParameters = state.pathParameters;
+
+      if (pathParameters.isNotEmpty) {
+        var parts = location.split('/');
+
+        newUrl = '${parts[0]}/';
+
+        for (var i = 1; i < (parts.length - pathParameters.length); i++) {
+          newUrl = '$newUrl${parts[i]}/';
+        }
+
+        newUrl = '/${newUrl.substring(0, newUrl.length - 1)}';
+      } else {
+        newUrl = state.location;
+      }
+
+      if (!isAuth() && !publicRoutes.contains(newUrl)) {
         return '/login';
       }
 

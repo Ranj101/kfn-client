@@ -250,6 +250,7 @@ class _ShopScreenState extends State<ShopScreen> {
                 final producerPage = producerPages[index];
 
                 return ProducerCard(
+                  id: producerPage.id,
                   name: producerPage.name,
                   locations: producerPage.locations,
                   openingTime: producerPage.openingTime,
@@ -401,6 +402,7 @@ class _ShopScreenState extends State<ShopScreen> {
                 final product = products[index];
 
                 return ProductCard(
+                  id: product.id,
                   name: product.name,
                   state: product.state,
                   picture: product.picture,

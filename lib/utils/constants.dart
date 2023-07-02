@@ -22,9 +22,10 @@ const kDropdownColor = Color.fromARGB(41, 54, 116, 45);
 
 // ========== Sizes ==========
 const kPrimaryTitleTextFontSize = 55.0;
+const kPrimarySmallBodyTextFontSize = 16.0;
 const kPrimaryBodyTextFontSize = 20.0;
+const kPrimaryLargeBodyTextFontSize = 30.0;
 const kPrimaryNavBarFontSize = 20.0;
-const kPrimarySmallBodyText = 16.0;
 const kPrimaryBorderRadiusValue = 10.0;
 final kPrimaryBorderRadius = BorderRadius.circular(kPrimaryBorderRadiusValue);
 
@@ -38,5 +39,6 @@ const List<String> publicRoutes = [
   '/${RouteConstants.shop}',
   '/${RouteConstants.contact}',
   '/${RouteConstants.login}',
-  '/${RouteConstants.register}'
+  '/${RouteConstants.register}',
+  '/${RouteConstants.shop}/${RouteConstants.producerPublic}'
 ];

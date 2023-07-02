@@ -13,7 +13,7 @@ class HttpClient {
 
     Map<String, String> headers = {
       'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      'Accept': '*/*'
     };
 
     if (token != null) {
@@ -68,6 +68,9 @@ class HttpClient {
         body: body,
         headers: headers ?? await _headers());
 
+    print('=== POST raw request\n${'$_url$path'}\n-----------');
+    print('=== POST raw response\n${reponse.body}\n-----------');
+
     dynamic responseBody;
 
     try {
@@ -76,11 +79,16 @@ class HttpClient {
       responseBody = reponse.body;
     }
 
-    return HTTPResponse(
+    var httpResponse = HTTPResponse(
       body: responseBody,
       statusCode: reponse.statusCode,
       isSuccessful: reponse.statusCode >= 200 && reponse.statusCode <= 299,
     );
+
+    print(
+        '=== Generated HTTP Response\nStatus Code:${httpResponse.statusCode}\nBody:${httpResponse.body}\n-----------');
+
+    return httpResponse;
   }
 
   static Future<HTTPResponse> put(

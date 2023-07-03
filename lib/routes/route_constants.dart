@@ -9,6 +9,8 @@ class RouteConstants {
   static const String register = 'register';
   static const String producer = 'producer';
   static const String shoppingBag = 'shopping-bag';
+  static const String manageOrders = 'manage-orders';
+  static const String orderInfo = 'order-detail';
 
   static const String producerPublic = 'producer-public';
 }

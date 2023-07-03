@@ -6,6 +6,8 @@ import 'package:kurdistan_food_network/screens/contact_screen.dart';
 import 'package:kurdistan_food_network/screens/home_screen.dart';
 import 'package:kurdistan_food_network/screens/auth/login_screen.dart';
 import 'package:kurdistan_food_network/screens/not_found_screen.dart';
+import 'package:kurdistan_food_network/screens/order_details_screen.dart';
+import 'package:kurdistan_food_network/screens/order_management_screen.dart';
 import 'package:kurdistan_food_network/screens/producer_public_screen.dart';
 import 'package:kurdistan_food_network/screens/producer_screen.dart';
 import 'package:kurdistan_food_network/screens/product_screen.dart';
@@ -92,6 +94,40 @@ class RouteConfigs {
           state: state,
           child: const ProducerScreen(),
         ),
+        routes: [
+          GoRoute(
+            name: RouteConstants.manageOrders,
+            path: '${RouteConstants.manageOrders}/:id',
+            builder: (context, state) => OrderManagementScreen(
+              id: state.pathParameters['id']!,
+            ),
+            pageBuilder: (context, state) =>
+                buildScreenWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: OrderManagementScreen(
+                id: state.pathParameters['id']!,
+              ),
+            ),
+          ),
+          GoRoute(
+            name: RouteConstants.orderInfo,
+            path: '${RouteConstants.orderInfo}/:orderId/:producerId',
+            builder: (context, state) => OrderDetailsScreen(
+              orderId: state.pathParameters['orderId']!,
+              producerId: state.pathParameters['producerId']!,
+            ),
+            pageBuilder: (context, state) =>
+                buildScreenWithDefaultTransition<void>(
+              context: context,
+              state: state,
+              child: OrderDetailsScreen(
+                orderId: state.pathParameters['orderId']!,
+                producerId: state.pathParameters['producerId']!,
+              ),
+            ),
+          ),
+        ],
       ),
       GoRoute(
         name: RouteConstants.shoppingBag,

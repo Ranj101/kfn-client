@@ -37,6 +37,9 @@ class UserSelfResponse {
   @JsonKey(name: 'updatedAt')
   DateTime? updatedAt;
 
+  @JsonKey(name: 'producerId')
+  String? producerId;
+
   UserSelfResponse({
     required this.id,
     required this.firstName,
@@ -45,6 +48,7 @@ class UserSelfResponse {
     required this.roles,
     required this.createdBy,
     required this.createdAt,
+    this.producerId,
     this.profilePicture,
     this.coverPicture,
     this.updatedBy,

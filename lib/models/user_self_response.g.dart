@@ -15,6 +15,7 @@ UserSelfResponse _$UserSelfResponseFromJson(Map<String, dynamic> json) =>
       roles: (json['roles'] as List<dynamic>).map((e) => e as String).toList(),
       createdBy: json['createdBy'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
+      producerId: json['producerId'] as String?,
       profilePicture: json['profilePicture'] as String?,
       coverPicture: json['coverPicture'] as String?,
       updatedBy: json['updatedBy'] as String?,
@@ -36,4 +37,5 @@ Map<String, dynamic> _$UserSelfResponseToJson(UserSelfResponse instance) =>
       'updatedBy': instance.updatedBy,
       'createdAt': instance.createdAt.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
+      'producerId': instance.producerId,
     };
